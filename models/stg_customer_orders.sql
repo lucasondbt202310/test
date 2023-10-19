@@ -1,4 +1,9 @@
-with customer_orders as (
+with orders as (
+
+    select * from {{    ref('stg_orders')   }}
+),
+
+customer_orders as (
 
     select
         customer_id,
@@ -12,3 +17,5 @@ with customer_orders as (
     group by 1
 
 )
+
+select * from customer_orders
